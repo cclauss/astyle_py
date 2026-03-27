@@ -78,8 +78,7 @@ def test_iter_rules(tmp_path: pathlib.Path):
     all_files = sorted(str(p.relative_to(base)) for p in tmp_path.glob('**/*.c'))
     assert len(all_files) == 4
 
-    rules_str = textwrap.dedent(
-        """
+    rules_str = textwrap.dedent("""
         DEFAULT:
             options: "--opt1 --opt2=foo"
             check: true
@@ -98,8 +97,7 @@ def test_iter_rules(tmp_path: pathlib.Path):
             include:
                 - "/**/sub2/"
             options: "--opt7 --opt8=ffs"
-    """
-    )
+    """)
     rules_file = tmp_path / 'rules'
     rules_file.write_text(rules_str)
 

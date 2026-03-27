@@ -18,24 +18,21 @@ def main():
     formatter.set_options('--style=mozilla --mode=c')
 
     # Original source to format
-    source = textwrap.dedent(
-        '''
+    source = textwrap.dedent('''
         int main(int argc, char** argv) {
           if (argc == 0) {
             return 1;
           }
           return 0;
         }
-        '''
-    ).strip()
+        ''').strip()
 
     # Format!
     result: str = formatter.format(source)
     print(result)
 
     # This should be the result
-    expected = textwrap.dedent(
-        '''
+    expected = textwrap.dedent('''
         int main(int argc, char** argv)
         {
             if (argc == 0) {
@@ -43,8 +40,7 @@ def main():
             }
             return 0;
         }
-        '''
-    ).strip()
+        ''').strip()
     assert result == expected
 
 
